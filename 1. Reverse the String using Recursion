@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		System.out.println(reverseString(s));
+	}
+	String rev="";
+	public static String reverseString(String s){
+	    if(s==null||s.length()<=1){
+	        return s;
+	    }
+	    return reverseString(s.substring(1))+s.charAt(0);
+	}
+}
