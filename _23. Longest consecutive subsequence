@@ -4,30 +4,26 @@ public class Main
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		int n=sc.nextInt();
-		int[] nums=new int[n];
+		int[] arr=new int[n];
 		for(int i=0;i<n;i++){
-		    nums[i]=sc.nextInt();
+		    arr[i]=sc.nextInt();
 		}
-		longestConsecutive(nums);
+		longestSequence(arr,n);
 	}
-	public static void longestConsecutive(int[] nums){
-	   Set<Integer> hs=new HashSet<Integer>();
-	   for(int num:nums){
-	       hs.add(num);
-	   }
-	   int ns=0;
-	   for(int num:nums){
-	       if(!hs.contains(num-1)){
-	           int currNum=num;
-	           int currStr=1;
-	           
-	           while(hs.contains(currNum+1)){
-	               currNum+=1;
-	               currStr+=1;
-	           }
-	           ns=Math.max(ns,currStr);
-	       }
-	   }
-	   System.out.println(ns);
+	static void longestSequence(int arr[],int n){
+	    Set<Integer> set=new HashSet<>();
+	    for(int i:arr)
+	    set.add(i);
+	    
+	    int ans=0;
+	    for(int i=0;i<n;i++){
+	        if(!set.contains(arr[i]-1)){
+	            int j=arr[i]+1;
+	            while(set.contains(j))
+	            j++;
+	            ans=Math.max(ans,j-arr[i]);
+	        }
+	    }
+	    System.out.println(ans);
 	}
 }
