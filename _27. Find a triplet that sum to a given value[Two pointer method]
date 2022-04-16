@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int sum=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=sc.nextInt();
+		}
+		tripletSum(arr,n,sum);
+	}
+	public static boolean tripletSum(int arr[],int n,int sum){
+	    Arrays.sort(arr);
+	    int l,r;
+	    for(int i=0;i<n;i++){
+	        l=i+1;
+	        r=n-1;
+	        
+	        while(l<r){
+	            if(arr[i]+arr[l]+arr[r]==sum){
+	                System.out.println("Triplet is: "+arr[i]+" "+arr[l]+" "+arr[r]);
+	                return true;
+	            }else if(arr[i]+arr[l]+arr[r]>sum){
+	                r--;
+	            }else{
+	                l++;
+	            }
+	        }
+	    }
+	    return false;
+	}
+}
