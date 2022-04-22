@@ -1,0 +1,47 @@
+import java.util.*;
+public class Main{
+    public static double Median(int A[],int B[]){
+        int n=A.length;
+        int m=B.length;
+        if(n>m)
+        return Median(B,A);
+        
+        int start=0;
+        int end=n;
+        int realArray=(n+m+1)/2;
+        
+        while(start<=end){
+            int mid=(start+end)/2;
+            int leftAsize=mid;
+            int leftBsize=realArray-mid;
+            int leftA=(leftAsize>0)?A[leftAsize-1]:Integer.MIN_VALUE;
+            int leftB=(leftBsize>0)?B[leftBsize-1]:Integer.MIN_VALUE;
+            int rightA=(leftAsize<n)?A[leftAsize]:Integer.MAX_VALUE;
+            int rightB=(leftBsize<m)?B[leftBsize]:Integer.MAX_VALUE;
+            
+            if(leftA<=rightB&&leftB<=rightA){
+                if((n+m)%2==0)
+                return (Math.max(leftA,leftB)+Math.min(rightA,rightB))/2.0;
+                return Math.max(leftA,leftB);
+            }else if(leftA>rightB)
+            end=mid-1;
+            else
+            start=mid+1;
+        }
+        return 0.0;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int ar1[]=new int[n1];
+        for(int i=0;i<n1;i++){
+            ar1[i]=sc.nextInt();
+        }
+        int n2=sc.nextInt();
+        int ar2[]=new int[n2];
+        for(int i=0;i<n2;i++){
+            ar2[i]=sc.nextInt();
+        }
+        System.out.print("Median is:"+Median(ar1,ar2));
+    }
+}
