@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main{
+    public static int Solution(int arr[]){
+        int n=arr.length;
+        if(n%2==0){
+            int z=n/2;
+            int e=arr[z];
+            int q=arr[z-1];
+            int ans=(e+q)/2;
+            return ans;
+        }else{
+            int z=Math.round(n/2);
+            return arr[z];
+        }
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int[] ar1=new int[n1];
+        for(int i=0;i<n1;i++){
+            ar1[i]=sc.nextInt();
+        }
+        
+        int n2=sc.nextInt();
+        int[] ar2=new int[n2];
+        for(int i=0;i<n2;i++){
+            ar2[i]=sc.nextInt();
+        }
+        
+        int[] ar3=new int[n1+n2];
+        System.arraycopy(ar1,0,ar3,0,n1);
+        System.arraycopy(ar2,0,ar3,n1,n2);
+        
+        Arrays.sort(ar3);
+        System.out.print("Median is:"+Solution(ar3));
+    }
+}
