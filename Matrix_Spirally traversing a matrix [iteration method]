@@ -1,0 +1,46 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int m=sc.nextInt();
+	int n=sc.nextInt();
+	int arr[][]=new int[m][n];
+	for(int i=0;i<m;i++)
+	{
+	    for(int j=0;j<n;j++)
+	    {
+	        arr[i][j]=sc.nextInt();
+	    }
+	}
+	spiralPrint(arr,m,n);
+	}
+	
+	public static void spiralPrint(int arr[][],int m,int n){
+	    int left=0,right=m-1,top=0,down=n-1,dire=0,i=0;
+	    while(top<=down&&left<=right){
+	        if(dire==0){
+	            for(i=left;i<=right;i++){
+	                System.out.print(arr[top][i]+" ");
+	            }top++;
+	        }
+	        else if(dire==1){
+	            for(i=top;i<=down;i++){
+	                System.out.print(arr[i][right]+" ");
+	            }right--;
+	        }
+	            else if(dire==2){
+	                for(i=right;i>=left;i--){
+	                    System.out.print(arr[down][i]+" ");
+	                }down--;
+	            }
+	            else if(dire==3){
+	                for(i=down;i>=top;i--){
+	                    System.out.print(arr[i][left]+" ");
+	                }left++;
+	            }
+	        
+	        dire=(dire+1)%4;
+	    }
+	}
+}
