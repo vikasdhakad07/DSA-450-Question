@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		char c[]=sc.next().toCharArray();
+		reverse(c);
+	}
+	public static void reverse(char c[]){
+	    ArrayList<Character> a=new ArrayList<>();
+	    for(char i:c){
+	        a.add(i);
+	    }
+	    Collections.reverse(a);
+	    ListIterator li=a.listIterator();
+	    while(li.hasNext()){
+	        System.out.print(li.next());
+	    }
+	}
+}
