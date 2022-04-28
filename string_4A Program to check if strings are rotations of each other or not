@@ -1,0 +1,21 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str1=sc.next();
+		String str2=sc.next();
+		System.out.println(rotation(str1,str2));
+	}
+	public static boolean rotation(String str1,String str2){
+	    String whole=str1+str1;
+	    if(str1.length()!=str2.length()){
+	        return false;
+	    }
+	    if(whole.indexOf(str2)==-1){
+	        return false;
+	    }else{
+	        return true;
+	    }
+	}
+}
