@@ -1,0 +1,24 @@
+class Main {
+    int lps(String s) {
+        int n=s.length();
+        int[] apl=new int[n];
+        int i=0,j=1;
+        apl[0]=0;
+        
+        while(j<n){
+            if(s.charAt(i)==s.charAt(j)){
+                apl[j]=i+1;
+                i++;
+                j++;
+            }else{
+                if(i==0){
+                    apl[0]=0;
+                    j++;
+                }else{
+                    i=apl[i-1];
+                }
+            }
+        }
+        return apl[n-1];
+    }
+}
