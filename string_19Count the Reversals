@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String str=sc.next();
+		System.out.println(countRev(str));
+	}
+	static int countRev(String s){
+	    int open=0,close=0;
+	    if(s.length()%2!=0){
+	        return -1;
+	    }else{
+	        for(int i=0;i<s.length();i++){
+	            if(s.charAt(i)=='{'){
+	                open++;
+	            }else{
+	                if(open==0){
+	                    close++;
+	                }else{
+	                    open--;
+	                }
+	            }
+	        }
+	    }
+	    return (int)(Math.ceil(open/2.0))+(int)(Math.ceil(close/2.0));
+	}
+}
