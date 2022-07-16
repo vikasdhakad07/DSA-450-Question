@@ -1,0 +1,19 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println(stringRepeated("I had been made this clear which had been good for me"));
+	}
+	public static String stringRepeated(String text){
+	    HashSet<String> set=new HashSet<>();
+	    String words[]=text.split(" ");
+	    for(int i=0;i<words.length;i++){
+	        if(set.contains(words[i])){
+	            return words[i];
+	        }else{
+	            set.add(words[i]);
+	        }
+	    }
+	    return "";
+	}
+}
