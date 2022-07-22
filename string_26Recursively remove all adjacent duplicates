@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String s=sc.next();
+		System.out.println(solve(s));
+	}
+	String rremove(String s) {
+        return solve(s);
+    }
+    
+    static String solve(String s){
+        StringBuilder sb=new StringBuilder(s);
+        int size=sb.length();
+        for(int i=0;i<size-1;i++){
+            if(sb.charAt(i)==sb.charAt(i+1)){
+                int k=i;
+                while(k<size-1&&sb.charAt(k)==sb.charAt(k+1)){
+                    k++;
+                }
+                sb.delete(i,k+1);
+                size=sb.length();
+                i--;
+            }
+        }
+    
+        if(s.equals(String.valueOf(sb))){
+            return s;
+        }
+    return solve(String.valueOf(sb));
+    }
+}
