@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int x=sc.nextInt();
+	    long[] arr=new long[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		System.out.println(find(arr,n,x));
+	}
+	 static ArrayList<Long> find(long arr[], int n, int x)
+    {
+        // code here
+        ArrayList<Long> al=new ArrayList<Long>();
+        long firstIndex=-1;
+        long secondIndex=-1;
+        
+        for(int i=0;i<n;i++){
+            if(arr[i]==x){
+                if(firstIndex==-1)
+                firstIndex=i;
+                secondIndex=i;
+            }
+        }
+        al.add(firstIndex);
+        al.add(secondIndex);
+        return al;
+    }
+}
