@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		System.out.println(valueEqualToIndex(arr,n));
+	}
+	static ArrayList<Integer> valueEqualToIndex(int arr[], int n) {
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        for(int i=0;i<n;i++){
+            int index=i+1;
+            if(arr[i]==index){
+                al.add(index);
+            }
+        }
+        return al;
+    }
+}
