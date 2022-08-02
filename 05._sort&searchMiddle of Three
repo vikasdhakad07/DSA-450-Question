@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int a=sc.nextInt();
+	    int b=sc.nextInt();
+	    int c=sc.nextInt();
+		System.out.println(middle(a,b,c));
+	}
+	
+static int middle(int A, int B, int C){
+        if(A<C){
+            if(B<A) return A;
+            else if(B>C) return C;
+            else return B;
+        }else{
+            if(B>A) return A;
+        else if(B<C) return C;
+        else return B;
+        }
+    }
+}
