@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int sum=sc.nextInt();
+	    long arr[]=new long[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		System.out.println(countTriplets(arr,n,sum));
+	}
+	static long countTriplets(long arr[], int n,int sum)
+    {
+        Arrays.sort(arr);
+        long count=0;
+        for(int i=0;i<n-2;i++){
+            int j=i+1,k=n-1;
+            while(j<k){
+                if(arr[i]+arr[j]+arr[k]<sum){
+                    count+=k-j;
+                    j++;
+                }else{
+                    k--;
+                }
+            }
+        }
+        return count;
+    }
+}
