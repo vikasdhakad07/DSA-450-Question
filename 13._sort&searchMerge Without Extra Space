@@ -1,0 +1,51 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int m=sc.nextInt();
+	    long arr1[]=new long[n];
+	    for(int i=0;i<n;i++){
+	        arr1[i]=sc.nextInt();
+	    }
+	    
+	    long arr2[]=new long[m];
+	    for(int i=0;i<m;i++){
+	        arr2[i]=sc.nextInt();
+	    }
+          	merge(arr1,arr2,n,m);
+	}
+	 
+	 public static void merge(long arr1[], long arr2[], int n, int m) 
+    {
+        long ans[]=new long[n+m];
+        for(int i=0;i<n;i++){
+            ans[i]=arr1[i];
+        }
+        
+        for(int i=0;i<m;i++){
+            ans[i+n]=arr2[i];
+        }
+        
+        Arrays.sort(ans);
+        
+        for(int i=0;i<n;i++){
+            arr1[i]=ans[i];
+        }
+        
+        int k=0;
+        for(int i=n;i<n+m;i++){
+            arr2[k++]=ans[i];
+        }
+        System.out.print("arr1[]:");
+        for(int i=0;i<n;i++){
+        System.out.print(arr1[i]+" ");
+        }
+        System.out.println();
+        System.out.print("arr2[]:");
+        for(int i=0;i<m;i++){
+        System.out.print(arr2[i]+" ");
+        }
+    }
+}
