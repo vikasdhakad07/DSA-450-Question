@@ -73,3 +73,48 @@ for(int i=0;i<n;i++){
 	}
 }
 
+****************************************************************************************************************************************************************
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int arr[]=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		product(arr,n);
+	}
+	
+	public static void product(int arr[],int n){
+	    if(n==1){
+	        System.out.print("0");
+	        return;
+	    }
+	    
+	    int i=0;
+	    long temp=1;
+	    long pro[]=new long[n];
+	    for(i=0;i<n;i++){
+	        pro[i]=1;
+	    }
+	    
+	    for(i=0;i<n;i++){
+	        pro[i]=temp;
+	        temp*=arr[i];
+	    }
+	    
+	    temp=1;
+	    
+	    for(i=n-1;i>=0;i--){
+	        pro[i]*=temp;
+	        temp*=arr[i];
+	    }
+	    
+	    for(i=0;i<n;i++){
+	        System.out.print(pro[i]+" ");
+	    }
+	}
+}
+
