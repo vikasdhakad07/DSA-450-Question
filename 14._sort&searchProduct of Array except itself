@@ -38,3 +38,38 @@ public class Main
         return pro;
 	} 
 }
+
+*******************************************************************************************************************************************************************
+METHOD 1:THIS APPROACH NOT HANDLE 0
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int arr[]=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+	    
+	    product(arr,n);
+	}
+	
+	public static long[] product(int arr[],int n){
+	    long pro=1;
+	    for(int i=0;i<n;i++){
+	        pro=pro*arr[i];
+	        
+	    }
+     long duct[]=new long[n];
+for(int i=0;i<n;i++){
+    duct[i]=pro/arr[i];
+}
+  for(int i=0;i<n;i++){
+      System.out.print(duct[i]+" ");
+  }
+   return duct;
+	}
+}
+
