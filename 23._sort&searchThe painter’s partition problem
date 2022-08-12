@@ -48,3 +48,58 @@ static int findMax(int arr[], int n, int k)
     return dp[k][n];
 }
 }
+
+*********************************************************************************************************************************************************************
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int k=sc.nextInt();
+	    int arr[]=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		System.out.println(partition(arr,n,k));
+	}
+	
+	static int maxVal(int arr[],int n){
+	    int max=Integer.MIN_VALUE;
+	    for(int i=0;i<n;i++)
+	    if(arr[i]>max)
+	    max=arr[i];
+	    return max;
+	}
+	static int maxSum(int arr[],int n){
+	    int total=0;
+	    for(int i=0;i<n;i++)
+	        total+=arr[i];
+	    return total;
+	}
+	static int numberOfPartition(int arr[],int n,int maxLen){
+	    int total=0,partition=1;
+	    for(int i=0;i<n;i++){
+	        total+=arr[i];
+	        if(total>maxLen){
+	        total=arr[i];
+	        partition++;
+	        }
+	        }
+	        return partition;
+	}
+	static int partition(int arr[],int n,int k){
+	    int lo=maxVal(arr,n);
+	    int hi=maxSum(arr,n);
+	    while(lo<hi){
+	        int mid=lo+(hi-lo)/2;
+	        int reqPartition=numberOfPartition(arr,n,mid);
+	        if(reqPartition<=k)
+	        hi= mid;
+	        else
+	        lo= mid+1;
+	    }
+	    return lo;
+	}
+}
