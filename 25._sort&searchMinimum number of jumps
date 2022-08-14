@@ -1,0 +1,48 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int arr[]=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+		System.out.println(minJumps(arr));
+	}
+	static int minJumps(int[] arr){
+        // your code here
+        int maxreach=0;
+       int jumps=0;
+       int current=0;
+       int n=arr.length;
+       if(n==1)
+       {
+       return 0;
+       }
+       
+       if(arr[0]==0)
+       {
+           return -1;
+       }
+       
+       for(int i=0;i<n-1;i++)
+       
+       {
+           maxreach=Math.max(maxreach,i+arr[i]);
+           
+           if(i==current)
+           {
+               jumps++;
+               current=maxreach;
+           }
+           
+           if(i>=maxreach)
+           {
+               return -1;
+           }
+       }
+       
+       return jumps;
+    }
+}
