@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String str=sc.next();
+		System.out.println(minChar(str));
+	}
+	
+	public static int minChar(String str) {
+       //Write your code here
+       int i=0;
+       int j=str.length()-1;
+       int l=j;
+       
+       while(i<j){
+           if(str.charAt(i)==str.charAt(j)){
+               i++;
+               j--;
+           }else{
+               i=0;
+               l--;
+               j=l;
+           }
+       }
+       return str.length()-l-1;
+    }
+}
