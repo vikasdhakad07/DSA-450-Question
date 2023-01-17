@@ -1,4 +1,6 @@
 import java.util.*;
+Method 01:
+
 public class Main
 {
   public static void main (String[]args)
@@ -32,4 +34,29 @@ public static int findSubString( String str) {
         }
         return res;  }
 
+}
+
+
+Method 02:
+
+
+
+class Solution{
+    int longestUniqueSubsttr(String S){
+        
+        HashMap<Character, Integer> hm=new HashMap<>();
+        int n=S.length();
+        int left=0, right=0;
+        int len=0;
+        while(right<n){
+            if(hm.containsKey(S.charAt(right))){
+                left=Math.max(hm.get(S.charAt(right))+1, left);
+            }
+            
+            hm.put(S.charAt(right),right);
+            len=Math.max(len, right-left+1);
+            right++;
+        }
+        return len;
+    }
 }
